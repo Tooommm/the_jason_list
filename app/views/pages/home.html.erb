@@ -1,2 +1,24 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="container">
+
+  <div class="card-container">
+
+
+    <div class="form-booking" id="form-booking">
+      <div class="form-wrapper">
+          <%= simple_form_for @argonaute, url: root_path, method: :post, remote: true do |f| %>
+          <%= f.input :name, as: :string, required: true, placeholder:"Nom de l'argonaute", label: "Nom" %>
+          <%= f.input :half_god, label: "Demi-dieu ?" %>
+          <%= f.input :notes, as: :string, required: false, placeholder:"note sur l'argonaute", label: "Note" %>
+          <%= f.button :submit, "Aller Hop! Dans l'Argo!", class: "button-form", data: {toggle: "modal", target: "#staticBackdrop"} %>
+          <% end %>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

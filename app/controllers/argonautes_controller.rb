@@ -1,0 +1,2 @@
+class ArgonautesController < ApplicationController
+end
