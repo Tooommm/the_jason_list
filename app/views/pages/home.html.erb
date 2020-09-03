@@ -7,9 +7,12 @@
   <div class="card-container">
 
 
-    <div class="form-booking" id="form-booking">
+    <div class="card-captain">
+    </div>
+
+    <div class="form-argonaute">
       <div class="form-wrapper">
-          <%= simple_form_for @argonaute, url: root_path, method: :post, remote: true do |f| %>
+          <%= simple_form_for @argonaute, url: argonautes_path(@argonaute), method: :post, remote: true do |f| %>
           <%= f.input :name, as: :string, required: true, placeholder:"Nom de l'argonaute", label: "Nom" %>
           <%= f.input :half_god, label: "Demi-dieu ?" %>
           <%= f.input :notes, as: :string, required: false, placeholder:"note sur l'argonaute", label: "Note" %>
@@ -17,6 +20,13 @@
           <% end %>
       </div>
     </div>
+
+    <% @argonautes.each do |argonaute| %>
+      <div class="cards-argonaute">
+        <p> <%= argonaute.name %> </p>
+      </div>
+    <% end %>
+
 
   </div>
 
