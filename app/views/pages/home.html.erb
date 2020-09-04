@@ -1,62 +1,111 @@
 <div class="container">
 
-  <div class="card-container">
-    <%= @argonautes.size %>
-    <% if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
+  <div class="up-container">
+    <h1>La Toison à Jason</h1>
 
+    <!--Bloc cpitaine et formulaire-->
+    <div class="container-head">
 
-    <div class="card-captain">
-      <% @captains.each do |argonaute| %>
-        <p> <%= argonaute.name %> </p>
-      <% end %>
-
-    </div>
-
-
-    <div class="form-argonaute">
-      <div class="form-wrapper">
-          <%= simple_form_for @argonaute, url: argonautes_path(@argonaute), method: :post, remote: true do |f| %>
-          <%= f.input :name, as: :string, required: true, placeholder:"Nom de l'argonaute", label: "Nom" %>
-          <%= f.input :half_god, label: "Demi-dieu ?" %>
-          <%= f.input :notes, as: :string, required: false, placeholder:"note sur l'argonaute", label: "Note" %>
-          <%= f.button :submit, "Aller Hop! Dans l'Argo!", class: "button-form", data: {toggle: "modal", target: "#staticBackdrop"} %>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="container-cards">
+      <!--Bloc capitaine-->
       <div class="col-md-4">
-
-        <% @half_gods.each do |argonaute| %>
-          <p> <%= argonaute.name %> </p>
-        <% end %>
-
+        <div class="card">
+          <h3> Capitaine de l'Argo:</h3>
+          <% if @captains.empty? %>
+              <br>
+              <br>
+              <p>Il manque un capitaine à l'argo!</p>
+              <p>Et si on ajoutait Jason?</p>
+            <% else %>
+            <% @captains.each do |argonaute| %>
+              <h2> <%= argonaute.name %> </h2>
+              <h3> <%= argonaute.notes %> </h3>
+            <% end %>
+          <% end %>
+        </div>
       </div>
 
-      <div class="col-md-4">
-        <% @humans.each_with_index do |argonaute, index| %>
-          <%if index.even? %>
-           <p> <%= argonaute.name %> </p>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="col-md-4">
-        <% @humans.each_with_index do |argonaute, index| %>
-          <%if index.odd? %>
-            <p> <%= argonaute.name %> </p>
-          <% end %>
-        <% end %>
+      <!--Bloc formulaire-->
+      <div class="col-md-8 form-argonaute">
+        <div class="card">
+          <div class="size-container">
+            <h3><%= @argonautes.size %> /50 Argonautes</h3>
+            <% if @argonautes.size >= 50 %>
+              <h3> Allons récupérer la TOISON D'OR ! </h3>
+            <% end %>
+          </div>
+          <div class="form-wrapper">
+              <%= simple_form_for @argonaute, url: argonautes_path(@argonaute), method: :post, remote: true do |f| %>
+              <%= f.input :name, as: :string, required: true, placeholder:"Nom de l'argonaute", label: "Nom" %>
+              <%= f.input :half_god, label: "Demi-dieu ?" %>
+              <%= f.input :notes, as: :string, required: false, placeholder:"note sur l'argonaute", label: "Note" %>
+              <div class="form-button"> <%= f.button :submit, "Aller Hop! Dans l'Argo!", class: "button-form" %> </div>
+              <% end %>
+          </div>
+        </div>
       </div>
 
     </div>
 
   </div>
 
+  <!--Colonnes Argonaute-->
+  <div class="container-col">
+    <div class="col-md-4">
+      <div class="card">
+        <h3> Demi-dieux: </h3>
+        <% if @half_gods.empty? %>
+          <br>
+          <br>
+          <p> Il nous faudrait un demi-dieu! </p>
+          <p> Héraclès est pas dispo? </p>
+        <% else %>
+          <% @half_gods.each do |argonaute| %>
+            <p> <%= argonaute.name %> </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-8">
+      <div class="card d-flex">
+        <h3> Equipage: </h3>
+        <% if @humans.empty? %>
+          <br>
+          <br>
+          <p> Il nous faut un équipage ! </p>
+          <p> Je suis dispo si besoin :) </p>
+        <% else %>
+        <div class="d-flex">
+          <div class="col-md-4">
+            <% @humans.each_with_index do |argonaute, index| %>
+              <%if index.even? %>
+               <p> <%= argonaute.name %> </p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <% @humans.each_with_index do |argonaute, index| %>
+              <%if index.odd? %>
+                <p> <%= argonaute.name %> </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+
+  <!--Notification-->
+  <div class="message">
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+  </div>
 
 </div>
