@@ -21,12 +21,24 @@
       </div>
     </div>
 
-    <% @argonautes.each do |argonaute| %>
-      <div class="cards-argonaute">
-        <p> <%= argonaute.name %> </p>
-      </div>
-    <% end %>
+    <div class="container-cards">
+      <div class="cards-half god">
 
+        <% @half_gods.each do |argonaute| %>
+          <p> <%= argonaute.name %> </p>
+        <% end %>
+
+      </div>
+
+      <div class="cards-argonaute">
+
+        <% @humans.each do |argonaute| %>
+          <p> <%= argonaute.name %> </p>
+        <% end %>
+
+      </div>
+
+    </div>
 
   </div>
 
