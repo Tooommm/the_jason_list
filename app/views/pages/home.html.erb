@@ -77,15 +77,15 @@
           <p> Il nous faut un équipage ! </p>
           <p> Je suis dispo si besoin :) </p>
         <% else %>
-        <div class="d-flex">
-          <div class="col-md-4">
+        <div class="argonaute-holder">
+          <div class="argonaute">
             <% @humans.each_with_index do |argonaute, index| %>
               <%if index.even? %>
                <p> <%= argonaute.name %> </p>
               <% end %>
             <% end %>
           </div>
-          <div class="col-md-4">
+          <div class="argonaute">
             <% @humans.each_with_index do |argonaute, index| %>
               <%if index.odd? %>
                 <p> <%= argonaute.name %> </p>
@@ -93,7 +93,7 @@
             <% end %>
           </div>
         </div>
-      <% end %>
+      <%end%>
       </div>
     </div>
 
