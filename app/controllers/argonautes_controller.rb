@@ -15,7 +15,7 @@ class ArgonautesController < ApplicationController
       flash[:alert] = "#{@argonaute.name} est déjà à bord!"
       redirect_to root_path
     elsif @argonautes.size < 50 && @argonaute.save
-      flash[:alert] = "#{@argonaute.name} est à bord!"
+      flash[:notice] = "#{@argonaute.name} est à bord!"
       redirect_to root_path
     else
       flash[:alert] = "Mollo Jason y a trop de monde à bord!"
