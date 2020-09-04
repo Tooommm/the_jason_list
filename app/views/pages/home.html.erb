@@ -5,9 +5,17 @@
 <div class="container">
 
   <div class="card-container">
+    <%= @argonautes.size %>
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
 
 
     <div class="card-captain">
+      <% @captains.each do |argonaute| %>
+        <p> <%= argonaute.name %> </p>
+      <% end %>
+
     </div>
 
     <div class="form-argonaute">

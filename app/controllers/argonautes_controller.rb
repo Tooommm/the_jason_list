@@ -2,10 +2,23 @@ class ArgonautesController < ApplicationController
 
   def create
     @argonaute = Argonaute.new(argonaute_params)
-    if @argonaute.save
+    @argonaute.name = @argonaute.name.split.map(&:capitalize).join(' ')
+    @argonautes = Argonaute.all
+    @argonaute_name = []
+    @argonautes.each do |argonaute|
+      @argonaute_name << argonaute.name
+    end
+    if @argonaute.name == "Jason"
+      @argonaute.captain = true
+    end
+    if @argonaute_name.include? @argonaute.name
+      flash[:alert] = "#{@argonaute.name} est déjà à bord!"
+      redirect_to root_path
+    elsif @argonautes.size < 50 && @argonaute.save
+      flash[:alert] = "#{@argonaute.name} est à bord!"
       redirect_to root_path
     else
-      raise
+      flash[:alert] = "Mollo Jason y a trop de monde à bord!"
       redirect_to root_path
     end
   end
