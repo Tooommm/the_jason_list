@@ -1,10 +1,9 @@
-// Specific CSS for your home-page
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-bottom: 0.5rem;
-    font-family: "Roboto", "sans-serif";
-    font-weight: 300;
-    line-height: 1.2;
-    text-align: center;
+ margin-bottom: 0.5rem;
+ font-family: "Roboto", "sans-serif";
+ font-weight: 300;
+ line-height: 1.2;
+ text-align: center;
 }
 
 body {
@@ -18,22 +17,18 @@ body {
     background-color: #F4F4F4;
 }
 
-
-.container-head {
-  display: flex;
-}
-
-.size-container {
-  text-align: center;
-}
-
-.container-col {
-  display: flex;
-  justify-content: space-between;
+.section  {
+  background: #EECC53;
+  margin: 15px;
+  box-shadow: 5px 4px 20px #1B1F23;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .form-control {
   background-color: #EECC53;
+  font-family: "Roboto", "sans-serif";
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
@@ -44,11 +39,6 @@ body {
   border-bottom: 2px solid #282828;
 }
 
-.form-control textarea {
-  background-color: #EECC53;
-
-}
-
 .form-control::placeholder {
   color: #282828;
 }
@@ -57,42 +47,19 @@ body {
   text-align: -webkit-center;
 }
 
-.button-form {
-  font-size: 20px;
-  padding: 10px;
-  display: block;
-  color: #EECC53;
-  background: #3D3D3D;
-  box-sizing: border-box;
-  border-radius: 10px;
+.capitaine {
+  text-align: center;
 }
 
-.button-form:hover {
-  color: #3D3D3D;
-  background: #EECC53;
+.half-god {
+  text-align: center;
 }
 
-.card {
-    display: flex;
-    background: #EECC53;
-    box-shadow: 5px 4px 20px #1B1F23;
-    border-radius: 10px;
-    padding: 15px;
-    align-items: center;
-    margin-top: 20px;
+.equipage {
+  text-align: center;
 }
 
-.form-wrapper {
-  width: -webkit-fill-available;
+.equipage-holder {
+  justify-content: space-around;
 }
 
-.argonaute-holder {
-  display: flex;
-  margin-left: -90px;
-
-}
-
-.argonaute {
-  min-width: -webkit-fill-available;
-
-}

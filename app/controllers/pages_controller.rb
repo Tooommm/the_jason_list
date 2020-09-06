@@ -6,4 +6,5 @@ class PagesController < ApplicationController
     @humans = Argonaute.humans
     @captains = Argonaute.captains
   end
+
 end
