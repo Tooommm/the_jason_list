@@ -10,6 +10,8 @@ class ArgonautesController < ApplicationController
     end
     if @argonaute.name == "Jason"
       @argonaute.captain = true
+      @argonaute.notes = "beau, vaillant et courageux"
+      @argonaute.half_god = true
     end
     if @argonaute_name.include? @argonaute.name
       flash[:alert] = "#{@argonaute.name} est déjà à bord!"

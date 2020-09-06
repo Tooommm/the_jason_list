@@ -33,7 +33,7 @@ body {
 }
 
 .form-control {
-  background: #EECC53;
+  background-color: #EECC53;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
@@ -42,6 +42,11 @@ body {
   border-left: none;
   border-right: none;
   border-bottom: 2px solid #282828;
+}
+
+.form-control textarea {
+  background-color: #EECC53;
+
 }
 
 .form-control::placeholder {
@@ -81,8 +86,13 @@ body {
   width: -webkit-fill-available;
 }
 
+.argonaute-holder {
+  display: flex;
+  margin-left: -90px;
+
+}
+
 .argonaute {
   min-width: -webkit-fill-available;
-
 
 }
